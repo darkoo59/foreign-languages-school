@@ -55,9 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Repository\AddressRepository.cs" />
+    <Compile Include="Repository\SchoolRepository.cs" />
+    <Compile Include="Service\AddressService.cs" />
+    <Compile Include="Service\SchoolService.cs" />
     <Compile Include="Utils\Enums.cs" />
     <Compile Include="View\Unauthorized\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\ProfessorsFromSchoolWindow.xaml.cs">
+      <DependentUpon>ProfessorsFromSchoolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Unauthorized\UnauthorizedMenu.xaml.cs">
       <DependentUpon>UnauthorizedMenu.xaml</DependentUpon>
@@ -75,6 +82,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Unauthorized\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Unauthorized\ProfessorsFromSchoolWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +130,39 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\img\About.png" />
+    <Resource Include="Resources\img\Accounts.png" />
+    <Resource Include="Resources\img\Add.png" />
+    <Resource Include="Resources\img\Appointment.png" />
+    <Resource Include="Resources\img\ArrowToLeft.png" />
+    <Resource Include="Resources\img\ArrowToRight.png" />
+    <Resource Include="Resources\img\Checked.png" />
+    <Resource Include="Resources\img\Close.png" />
+    <Resource Include="Resources\img\Contact.png" />
+    <Resource Include="Resources\img\Edit.png" />
+    <Resource Include="Resources\img\Email.png" />
+    <Resource Include="Resources\img\Equipment.png" />
+    <Resource Include="Resources\img\eye.png" />
+    <Resource Include="Resources\img\FreeDays.png" />
+    <Resource Include="Resources\img\Home.png" />
+    <Resource Include="Resources\img\Location.png" />
+    <Resource Include="Resources\img\Logo.png" />
+    <Resource Include="Resources\img\MedicalRecords.png" />
+    <Resource Include="Resources\img\Meeting.png" />
+    <Resource Include="Resources\img\Minus.png" />
+    <Resource Include="Resources\img\Next.png" />
+    <Resource Include="Resources\img\Phone.png" />
+    <Resource Include="Resources\img\Place.png" />
+    <Resource Include="Resources\img\Profile.png" />
+    <Resource Include="Resources\img\Remove.png" />
+    <Resource Include="Resources\img\Reschedule.png" />
+    <Resource Include="Resources\img\Schedule.png" />
+    <Resource Include="Resources\img\SecretaryProfile.png" />
+    <Resource Include="Resources\img\Settings.png" />
+    <Resource Include="Resources\img\SignOut.png" />
+    <Resource Include="Resources\img\ToggleMenu.png" />
+    <Resource Include="Resources\img\ToggleMenu_MouseOver.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,7 +10,73 @@
     <UserControl.Resources>
         <ResourceDictionary Source="../WindowStyles.xaml"></ResourceDictionary>
     </UserControl.Resources>
-    <Grid x:Name="MenuBarPanel" HorizontalAlignment="Left" Width="40" Style="{StaticResource MenuGrid}" Grid.ColumnSpan="2">
+    <Grid x:Name="MenuBarPanel" HorizontalAlignment="Left" Width="45" Style="{StaticResource menu_bar}" Grid.ColumnSpan="2">
+        <StackPanel x:Name="StackPanel" Margin="0,0,10,0">
+            <!--Grid for toggle button-->
+            <Grid Height="65">
+                <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Margin="49,-13,0,0"
+                               Text="M E N U"
+                               Foreground="White"
+                               FontSize="22"
+                               Background="Transparent"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource font_style}">
+                        
+                         <!--Shadow effect-->
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="10"
+                                              ShadowDepth="1"
+                                              Direction="-90"
+                                              Color="Gray"></DropShadowEffect>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <ToggleButton x:Name="TgButton"
+                                  Grid.Column="0"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Left"
+                                  Margin="5,5,0,15"
+                                  Height="30"
+                                  Width="30"
+                                  BorderThickness="0"
+                                  Style="{StaticResource tb_style}"
+                                  >
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="../../Resources/img/ToggleMenu.png"></ImageBrush>
+                    </ToggleButton.Background>
+                    <ToggleButton.Triggers>
+                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                            <BeginStoryboard>
+                                <Storyboard Name="HideStackPanel">
+                                    <DoubleAnimation
+                                            Storyboard.TargetName="MenuBarPanel"
+                                            Storyboard.TargetProperty="Width"
+                                            BeginTime="0:0:0"
+                                            From = "150" To="40"
+                                            Duration="0:0:0.2">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="ToggleButton.Checked">
+                            <BeginStoryboard>
+                                <Storyboard Name="ShowStackPanel">
+                                    <DoubleAnimation
+                                            Storyboard.TargetName="MenuBarPanel"
+                                            Storyboard.TargetProperty="Width"
+                                            BeginTime="0:0:0"
+                                            From = "40" To="150"
+                                            Duration="0:0:0.2">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ToggleButton.Triggers>
 
+                </ToggleButton>
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>

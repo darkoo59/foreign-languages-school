@@ -4,9 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ForeignLanguagesSchool.View.Unauthorized"
+        xmlns:uc="clr-namespace:ForeignLanguagesSchool.View.Unauthorized"
         mc:Ignorable="d"
-        Title="Home" Height="720" Width="1280">
-    <Grid>
-        
+        Title="Home" Height="720" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown">
+
+    <Window.Resources>
+        <ResourceDictionary Source="../WindowStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="GridStyle" Style="{StaticResource GridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="603*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="../../Resources/img/Close.png" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.078,-0.625" Grid.Column="1" Margin="47,3,0,0" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <ComboBox Name="ComboCity" Style="{StaticResource combo_style}"  HorizontalAlignment="Left" Margin="440,30,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="ComboLanguage" Style="{StaticResource combo_style}"  HorizontalAlignment="Left" Margin="650,30,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="City :" HorizontalAlignment="Left" Margin="400,28,0,0" VerticalAlignment="Top" Width="92" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="Language :" HorizontalAlignment="Left" Margin="580,28,0,0" VerticalAlignment="Top" Width="92" Style="{StaticResource label_style}"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="800,22,0,0" VerticalAlignment="Top" Width="76" Height="35" Style="{StaticResource btn_style}" Click="Search_Click"/>
+        <Button Content="Show professors" HorizontalAlignment="Left" Margin="900,22,0,0" VerticalAlignment="Top" Width="96" Height="35" Style="{StaticResource btn_style}" Click="Show_Professors_Click"/>
+
+        <DataGrid Name="schoolDataGrid" ItemsSource="{Binding Addresses}" Style="{StaticResource dataGrid}"
+                  RowStyle="{StaticResource dataGridRow_style}" RowHeaderStyle="{StaticResource dataGridRowHeader}" ColumnHeaderStyle="{StaticResource dataGridHeader}"
+                  HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Disabled"
+                  SelectionMode="Single"
+                  Width="auto"
+                  Height="auto"
+                  ColumnWidth="*"
+                  Margin="60,80,20,65"
+                  CanUserResizeColumns="True"
+                  CanUserResizeRows="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True" Grid.ColumnSpan="2">
+        </DataGrid>
+
+        <!-- //Menu bar panel // -->
+        <uc:UnauthorizedMenu Focusable="False" x:Name="UnauthorizedMenu" Grid.Column="0" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
