@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ForeignLanguagesSchool.View.Unauthorized;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ForeignLanguagesSchool.View.Unauthorized
+namespace ForeignLanguagesSchool.View.Authorized.Administrator
 {
     /// <summary>
-    /// Interaction logic for UnauthorizedMenu.xaml
+    /// Interaction logic for AdministratorMenu.xaml
     /// </summary>
-    public partial class UnauthorizedMenu : UserControl
+    public partial class AdministratorMenu : UserControl
     {
-        public UnauthorizedMenu()
+        public AdministratorMenu()
         {
             InitializeComponent();
         }
@@ -29,41 +30,42 @@ namespace ForeignLanguagesSchool.View.Unauthorized
         {
             if (TgButton.IsChecked == true)
             {
-                tt_home.Visibility = Visibility.Collapsed;
-                tt_login.Visibility = Visibility.Collapsed;
+                tt_accounts.Visibility = Visibility.Collapsed;
+                tt_classes.Visibility = Visibility.Collapsed;
+                tt_register.Visibility = Visibility.Collapsed;
                 tt_register.Visibility = Visibility.Collapsed;
             }
             else
             {
-                tt_home.Visibility = Visibility.Visible;
-                tt_login.Visibility = Visibility.Visible;
+                tt_accounts.Visibility = Visibility.Visible;
+                tt_classes.Visibility = Visibility.Visible;
+                tt_register.Visibility = Visibility.Visible;
                 tt_register.Visibility = Visibility.Visible;
             }
         }
 
-        private void Home_Click(object sender, MouseButtonEventArgs e)
+        private void Accounts_Click(object sender, MouseButtonEventArgs e)
         {
             var myWindow = Window.GetWindow(this);
-            Home window = new Home();
+            AccountsWindow window = new AccountsWindow();
             window.Show();
             myWindow.Close();
+        }
+
+        private void Classes_Click(object sender, MouseButtonEventArgs e)
+        {
         }
 
         private void Register_Click(object sender, MouseButtonEventArgs e)
         {
             var myWindow = Window.GetWindow(this);
-            RegisterWindow window = new RegisterWindow();
+            RegisterUser window = new RegisterUser();
             window.Show();
             myWindow.Close();
         }
 
-        private void Login_Click(object sender, MouseButtonEventArgs e)
+        private void SignOut_Click(object sender, MouseButtonEventArgs e)
         {
-            var myWindow = Window.GetWindow(this);
-            SignInWindow window = new SignInWindow();
-            window.Show();
-            myWindow.Close();
         }
-
     }
 }

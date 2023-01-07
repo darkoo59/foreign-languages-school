@@ -25,10 +25,13 @@ namespace ForeignLanguagesSchool.View.Unauthorized
         private readonly SchoolService _schoolService;
         private readonly AddressService _addressService;
         private List<School> schools;
+        private App app;
+
         public Home()
         {
-            _addressService = new AddressService(new AddressRepository());
-            _schoolService = new SchoolService(new SchoolRepository());
+            app = Application.Current as App;
+            _addressService = app.addressService;
+            _schoolService = app.schoolService;
             schools = _schoolService.getAllSchooles();
             InitializeComponent();
             this.DataContext = this;

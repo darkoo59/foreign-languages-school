@@ -12,9 +12,31 @@ namespace ForeignLanguagesSchool.Service
     public class SchoolService
     {
         private readonly SchoolRepository _schoolRepository;
+        private readonly List<School> _allSchools;
         public SchoolService(SchoolRepository schoolRepository)
         {
             _schoolRepository = schoolRepository;
+            _allSchools = populateAllSchools();
+        }
+
+        public School GetSchoolById(int id)
+        {
+            foreach(School school in _allSchools)
+            {
+                if (school.Id == id)
+                    return school;
+            }
+            return null;
+        }
+
+        public List<School> populateAllSchools()
+        {
+            List<School> allSchools = _schoolRepository.GetAllSchools();
+            foreach(School school in allSchools)
+            {
+                school.Languages = _schoolRepository.GetAllLanguagesBySchoolId(school.Id);
+            }
+            return allSchools;
         }
 
         public List<School> getAllSchooles()

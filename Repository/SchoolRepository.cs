@@ -16,6 +16,29 @@ namespace ForeignLanguagesSchool.Repository
             _connectionString = "Data Source=LAPTOP-A2KV1B0B;Initial Catalog=ForeignLanguagesSchool;Integrated Security=True;Pooling=False";
         }
 
+        public List<string> GetAllLanguagesBySchoolId(int id)
+        {
+            var languages = new List<string>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand("SELECT * FROM SchoolLanguages WHERE school_id="+id, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            languages.Add((string)reader["language"]);
+                        }
+                    }
+                }
+            }
+
+            return languages;
+        }
+
         public List<School> GetAllSchools()
         {
             var schools = new List<School>();

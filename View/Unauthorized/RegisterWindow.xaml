@@ -1,0 +1,50 @@
+﻿<Window x:Class="ForeignLanguagesSchool.View.Unauthorized.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:ForeignLanguagesSchool.View.Unauthorized"
+        xmlns:local="clr-namespace:ForeignLanguagesSchool.View.Unauthorized"
+        mc:Ignorable="d"
+        Title="Register" Height="720" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <ResourceDictionary Source="../WindowStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="GridStyle" Style="{StaticResource GridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="603*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="../../Resources/img/Close.png" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.078,-0.625" Grid.Column="1" Margin="47,3,0,0" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Label Content="First name" HorizontalAlignment="Left" Margin="200,28,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="FirstNameTb" HorizontalAlignment="Left" FontSize="24" Margin="390,40,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="Last name" HorizontalAlignment="Left" Margin="200,128,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="LastNameTb" FontSize="24" HorizontalAlignment="Left" Margin="390,140,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="JMBG" HorizontalAlignment="Left" Margin="200,228,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="JmbgTb" FontSize="24" HorizontalAlignment="Left" Margin="390,240,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="Gender" HorizontalAlignment="Left" Margin="200,328,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <ComboBox x:Name="GenderCmb" FontSize="24" HorizontalAlignment="Left" Margin="390,340,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource combo_style}" RenderTransformOrigin="2.463,-1.362">
+            <ComboBoxItem Content="Male" />
+            <ComboBoxItem Content="Female" />
+        </ComboBox>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="200,428,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="EmailTb" FontSize="24" HorizontalAlignment="Left" Margin="390,440,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+
+
+        <Label Content="Country" HorizontalAlignment="Left" Margin="630,28,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="CountryTb" FontSize="24" HorizontalAlignment="Left" Margin="880,40,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="City" HorizontalAlignment="Left" Margin="630,128,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="CityTb" FontSize="24" HorizontalAlignment="Left" Margin="880,140,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="Street" HorizontalAlignment="Left" Margin="630,228,0,0" VerticalAlignment="Top" Width="200" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="StreetTb" FontSize="24" HorizontalAlignment="Left" Margin="880,240,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="Street number" HorizontalAlignment="Left" Margin="630,328,0,0" VerticalAlignment="Top" Width="300" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox x:Name="NumberTb" FontSize="24" HorizontalAlignment="Left" Margin="880,340,0,0" VerticalAlignment="Top" Width="180" Height="40" Style="{StaticResource textBox_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="630,428,0,0" VerticalAlignment="Top" Width="300" FontSize="35" Style="{StaticResource label_style}" RenderTransformOrigin="2.463,-1.362"/>
+        <TextBox Name="PasswordTb" FontSize="24" HorizontalAlignment="Left" Height="40" Margin="880,440,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Visibility="Hidden" Style="{StaticResource textBox_style}"/>
+        <PasswordBox Name="PasswordPb" FontSize="24" HorizontalAlignment="Left" Margin="880,440,0,0" VerticalAlignment="Top" Width="180" Height="40" Visibility="Visible" Style="{StaticResource paswordBox_style}"/>
+        <Image Source="../../Resources/img/Eye.png" HorizontalAlignment="Left" Margin="1080,200,0,0" Width="30" RenderTransformOrigin="-0.12,-0.933" MouseLeftButtonDown="ShowPassword_MouseLeftButtonDown"/>
+        <Button Content="Register now" HorizontalAlignment="Left" FontSize="50" Margin="525,560,0,0" VerticalAlignment="Top" Width="400" Height="100" Click="Register_Click" Style="{StaticResource btn_style}"/>
+        <!-- //Menu bar panel // -->
+        <uc:UnauthorizedMenu Focusable="False" x:Name="UnauthorizedMenu" Grid.Column="0" Grid.ColumnSpan="2" />
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="ForeignLanguagesSchool.View.Authorized.Administrator.RegisterUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:ForeignLanguagesSchool.View.Authorized.Administrator"
+        xmlns:local="clr-namespace:ForeignLanguagesSchool.View.Authorized.Administrator"
+        mc:Ignorable="d"
+        Title="Accounts" Height="720" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <ResourceDictionary Source="../../WindowStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Grid  x:Name="GridStyle" Style="{StaticResource GridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="603*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="../../../Resources/img/Close.png" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.078,-0.625" Grid.Column="1" Margin="47,3,0,0" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Button Content="Register student" HorizontalAlignment="Left" FontSize="50" Margin="370,160,0,0" VerticalAlignment="Top" Width="600" Height="130" Click="RegisterStudent_Click" Style="{StaticResource btn_style}"/>
+        <Button Content="Register professor" HorizontalAlignment="Left" FontSize="50" Margin="370,400,0,0" VerticalAlignment="Top" Width="600" Height="130" Click="RegisterProfessor_Click" Style="{StaticResource btn_style}"/>
+        <!-- //Menu bar panel // -->
+        <uc:AdministratorMenu Focusable="False" x:Name="AdministratorMenu" Grid.Column="0" Grid.ColumnSpan="2" />
+    </Grid>
+</Window>
