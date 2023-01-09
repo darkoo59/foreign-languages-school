@@ -1,4 +1,5 @@
-﻿using ForeignLanguagesSchool.View.Unauthorized;
+﻿using ForeignLanguagesSchool.View.Authorized.Administrator;
+using ForeignLanguagesSchool.View.Unauthorized;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ForeignLanguagesSchool.View.Authorized.Administrator
+namespace ForeignLanguagesSchool.View.Authorized.ProfessorPanel
 {
     /// <summary>
-    /// Interaction logic for AdministratorMenu.xaml
+    /// Interaction logic for ProfessorMenu.xaml
     /// </summary>
-    public partial class AdministratorMenu : UserControl
+    public partial class ProfessorMenu : UserControl
     {
         private App app;
-        public AdministratorMenu()
+        public ProfessorMenu()
         {
             app = Application.Current as App;
             InitializeComponent();
@@ -32,44 +33,31 @@ namespace ForeignLanguagesSchool.View.Authorized.Administrator
         {
             if (TgButton.IsChecked == true)
             {
-                tt_accounts.Visibility = Visibility.Collapsed;
                 tt_classes.Visibility = Visibility.Collapsed;
-                tt_register.Visibility = Visibility.Collapsed;
-                tt_register.Visibility = Visibility.Collapsed;
+                tt_signOut.Visibility = Visibility.Collapsed;
             }
             else
             {
-                tt_accounts.Visibility = Visibility.Visible;
                 tt_classes.Visibility = Visibility.Visible;
-                tt_register.Visibility = Visibility.Visible;
-                tt_register.Visibility = Visibility.Visible;
+                tt_signOut.Visibility = Visibility.Visible;
             }
         }
 
-        private void Accounts_Click(object sender, MouseButtonEventArgs e)
+        private void MyClasses_Click(object sender, MouseButtonEventArgs e)
         {
             var myWindow = Window.GetWindow(this);
-            AccountsWindow window = new AccountsWindow();
+            MyClassesWindow window = new MyClassesWindow();
             window.Show();
             myWindow.Close();
         }
 
-        private void Classes_Click(object sender, MouseButtonEventArgs e)
+        private void AllProfessors_Click(object sender, MouseButtonEventArgs e)
         {
             var myWindow = Window.GetWindow(this);
-            ProfessorsWindow window = new ProfessorsWindow();
+            ProfessorAllProfessorsWindow window = new ProfessorAllProfessorsWindow();
             window.Show();
             myWindow.Close();
         }
-
-        private void Register_Click(object sender, MouseButtonEventArgs e)
-        {
-            var myWindow = Window.GetWindow(this);
-            RegisterUser window = new RegisterUser();
-            window.Show();
-            myWindow.Close();
-        }
-
         private void SignOut_Click(object sender, MouseButtonEventArgs e)
         {
             app.loggedUser = null;

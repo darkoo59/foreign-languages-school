@@ -56,18 +56,32 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Repository\AddressRepository.cs" />
+    <Compile Include="Repository\ClassRepository.cs" />
     <Compile Include="Repository\SchoolRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\AddressService.cs" />
+    <Compile Include="Service\ClassService.cs" />
     <Compile Include="Service\SchoolService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Utils\Enums.cs" />
     <Compile Include="Validation\RequiredFieldValidationRule.cs" />
+    <Compile Include="View\Authorized\Administrator\AccountsFilter.xaml.cs">
+      <DependentUpon>AccountsFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Authorized\Administrator\AccountsWindow.xaml.cs">
       <DependentUpon>AccountsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Authorized\Administrator\AddClassWindow.xaml.cs">
+      <DependentUpon>AddClassWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Authorized\Administrator\AdministratorMenu.xaml.cs">
       <DependentUpon>AdministratorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\Administrator\ProfessorClassesWindow.xaml.cs">
+      <DependentUpon>ProfessorClassesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\Administrator\ProfessorsWindow.xaml.cs">
+      <DependentUpon>ProfessorsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Authorized\Administrator\RegisterProfessorWindow.xaml.cs">
       <DependentUpon>RegisterProfessorWindow.xaml</DependentUpon>
@@ -81,14 +95,47 @@
     <Compile Include="View\Authorized\Administrator\UpdateUserWindow.xaml.cs">
       <DependentUpon>UpdateUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Authorized\ProfessorPanel\MyClassesWindow.xaml.cs">
+      <DependentUpon>MyClassesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\ProfessorPanel\ProfessorAddClass.xaml.cs">
+      <DependentUpon>ProfessorAddClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\ProfessorPanel\ProfessorAllProfessorsWindow.xaml.cs">
+      <DependentUpon>ProfessorAllProfessorsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\ProfessorPanel\ProfessorMenu.xaml.cs">
+      <DependentUpon>ProfessorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\ProfessorPanel\ShowStudentInfo.xaml.cs">
+      <DependentUpon>ShowStudentInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\StudentPanel\AllProfessorsWindow.xaml.cs">
+      <DependentUpon>AllProfessorsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\StudentPanel\ProfessorClassesWindow.xaml.cs">
+      <DependentUpon>ProfessorClassesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\StudentPanel\StudentHomeWindow.xaml.cs">
+      <DependentUpon>StudentHomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Authorized\StudentPanel\StudentMenu.xaml.cs">
+      <DependentUpon>StudentMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Unauthorized\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\ProfessorsFilter.xaml.cs">
+      <DependentUpon>ProfessorsFilter.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Unauthorized\ProfessorsFromSchoolWindow.xaml.cs">
       <DependentUpon>ProfessorsFromSchoolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Unauthorized\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Unauthorized\SchoolFilter.xaml.cs">
+      <DependentUpon>SchoolFilter.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Unauthorized\SignInWindow.xaml.cs">
       <DependentUpon>SignInWindow.xaml</DependentUpon>
@@ -108,11 +155,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Authorized\Administrator\AccountsFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Authorized\Administrator\AccountsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Authorized\Administrator\AddClassWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Authorized\Administrator\AdministratorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\Administrator\ProfessorClassesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\Administrator\ProfessorsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,7 +195,47 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Authorized\ProfessorPanel\MyClassesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\ProfessorPanel\ProfessorAddClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\ProfessorPanel\ProfessorAllProfessorsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\ProfessorPanel\ProfessorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\ProfessorPanel\ShowStudentInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\StudentPanel\AllProfessorsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\StudentPanel\ProfessorClassesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\StudentPanel\StudentHomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Authorized\StudentPanel\StudentMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Unauthorized\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Unauthorized\ProfessorsFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,6 +244,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Unauthorized\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Unauthorized\SchoolFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

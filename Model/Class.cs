@@ -10,11 +10,12 @@ namespace ForeignLanguagesSchool.Model
     public class Class
     {
         public int Id { get; set; }
-        public Professor Professor{ get; set; }
+        public int ProfessorId{ get; set; }
         public DateTime StartDate { get; set; }
         public TimeSpan StartTime { get; set; }
         public int Duration { get; set; }
         public ClassStatus ClassStatus { get; set; }
-        public Student Student { get; set; }
+        public int StudentId{ get; set; }
+        public int Deleted { get; set; }
     }
 }

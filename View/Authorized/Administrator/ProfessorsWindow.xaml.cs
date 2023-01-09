@@ -18,46 +18,45 @@ using System.Windows.Shapes;
 namespace ForeignLanguagesSchool.View.Authorized.Administrator
 {
     /// <summary>
-    /// Interaction logic for AccountsWindow.xaml
+    /// Interaction logic for ProfessorsWindow.xaml
     /// </summary>
-    public partial class AccountsWindow : Window
+    public partial class ProfessorsWindow : Window
     {
         private readonly UserService _userService;
-        private List<User> users;
+        private List<Professor> professors;
         private App app;
-        public AccountsWindow()
+        public ProfessorsWindow()
         {
             app = Application.Current as App;
             _userService = app.userService;
-            users = _userService.getAllUsers();
+            professors = _userService.getAllProfessors();
             InitializeComponent();
             this.DataContext = this;
             UpdateGridView();
-            accountsDataGrid.Items.Clear();
-            accountsDataGrid.ItemsSource = users;
+            professorsDataGrid.Items.Clear();
+            professorsDataGrid.ItemsSource = professors;
         }
-
 
         private void UpdateGridView()
         {
-            accountsDataGrid.AutoGenerateColumns = false;
-            accountsDataGrid.CanUserSortColumns = false;
+            professorsDataGrid.AutoGenerateColumns = false;
+            professorsDataGrid.CanUserSortColumns = false;
             DataGridTextColumn dataColumn = new DataGridTextColumn();
             dataColumn.Header = "First name";
             dataColumn.Binding = new Binding("FirstName");
-            accountsDataGrid.Columns.Add(dataColumn);
+            professorsDataGrid.Columns.Add(dataColumn);
             dataColumn = new DataGridTextColumn();
             dataColumn.Header = "Last name";
             dataColumn.Binding = new Binding("LastName");
-            accountsDataGrid.Columns.Add(dataColumn);
+            professorsDataGrid.Columns.Add(dataColumn);
             dataColumn = new DataGridTextColumn();
             dataColumn.Header = "Email";
             dataColumn.Binding = new Binding("Email");
-            accountsDataGrid.Columns.Add(dataColumn);
+            professorsDataGrid.Columns.Add(dataColumn);
             dataColumn = new DataGridTextColumn();
-            dataColumn.Header = "Type";
-            dataColumn.Binding = new Binding("UserType");
-            accountsDataGrid.Columns.Add(dataColumn);
+            dataColumn.Header = "Gender";
+            dataColumn.Binding = new Binding("Gender");
+            professorsDataGrid.Columns.Add(dataColumn);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -71,41 +70,25 @@ namespace ForeignLanguagesSchool.View.Authorized.Administrator
             this.Close();
         }
 
-        private void Update_Click(object sender, RoutedEventArgs e)
+        private void ShowClasses_Click(object sender, RoutedEventArgs e)
         {
-            if (accountsDataGrid.SelectedItem != null)
+            if (professorsDataGrid.SelectedItem != null)
             {
-                UpdateUserWindow window = new UpdateUserWindow((User)accountsDataGrid.SelectedItem);
+                ProfessorClassesWindow window = new ProfessorClassesWindow((Professor)professorsDataGrid.SelectedItem);
                 window.Show();
             }
         }
 
         private void Filter_Click(object sender, RoutedEventArgs e)
         {
-            AccountsFilter window = new AccountsFilter(_userService.getAllUsers());
+            ProfessorsFilter window = new ProfessorsFilter(_userService.getAllProfessors());
             window.Show();
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        internal void FilterList(List<Professor> filteredProfessors)
         {
-            if (accountsDataGrid.SelectedItem != null)
-            {
-                _userService.Delete((User)accountsDataGrid.SelectedItem);
-                users = _userService.getAllUsers();
-                accountsDataGrid.ItemsSource = users;
-            }
-        }
-
-        public void UpdateUsers()
-        {
-            users = _userService.getAllUsers();
-            accountsDataGrid.ItemsSource = users;
-        }
-
-        internal void FilterList(List<User> filteredUsers)
-        {
-            users = filteredUsers;
-            accountsDataGrid.ItemsSource = users;
+            professors = filteredProfessors;
+            professorsDataGrid.ItemsSource = filteredProfessors;
         }
     }
 }

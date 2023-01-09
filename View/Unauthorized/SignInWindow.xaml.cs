@@ -2,6 +2,8 @@
 using ForeignLanguagesSchool.Service;
 using ForeignLanguagesSchool.Utils;
 using ForeignLanguagesSchool.View.Authorized.Administrator;
+using ForeignLanguagesSchool.View.Authorized.ProfessorPanel;
+using ForeignLanguagesSchool.View.Authorized.StudentPanel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +78,18 @@ namespace ForeignLanguagesSchool.View.Unauthorized
                     {
                         var myWindow = Window.GetWindow(this);
                         AccountsWindow window = new AccountsWindow();
+                        window.Show();
+                        myWindow.Close();
+                    }else if(app.loggedUser.UserType.Equals(UserType.Professor))
+                    {
+                        var myWindow = Window.GetWindow(this);
+                        MyClassesWindow window = new MyClassesWindow();
+                        window.Show();
+                        myWindow.Close();
+                    }else if(app.loggedUser.UserType.Equals(UserType.Student))
+                    {
+                        var myWindow = Window.GetWindow(this);
+                        StudentHomeWindow window = new StudentHomeWindow();
                         window.Show();
                         myWindow.Close();
                     }

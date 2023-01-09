@@ -1,5 +1,6 @@
 ﻿using ForeignLanguagesSchool.Model;
 using ForeignLanguagesSchool.Repository;
+using ForeignLanguagesSchool.View.Unauthorized;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace ForeignLanguagesSchool.Service
 
         public List<School> getAllSchooles()
         {
-            return _schoolRepository.GetAllSchools();
+            return populateAllSchools();
         }
 
         public List<string> getAllLanguages()
@@ -81,6 +82,72 @@ namespace ForeignLanguagesSchool.Service
                         break;
                     }
                 }
+            }
+            return schoolsToReturn;
+        }
+
+        internal List<School> FilterListByName(List<School> schoolsToFilter, string text)
+        {
+            List<School> schoolsToReturn = new List<School>();
+            foreach (School school in schoolsToFilter)
+            {
+                if (school.Name.Contains(text))
+                    schoolsToReturn.Add(school);
+            }
+            return schoolsToReturn;
+        }
+
+        internal List<School> FilterListByCountry(List<School> schoolsToFilter, string text)
+        {
+            List<School> schoolsToReturn = new List<School>();
+            foreach (School school in schoolsToFilter)
+            {
+                if (school.Address.Country.Contains(text))
+                    schoolsToReturn.Add(school);
+            }
+            return schoolsToReturn;
+        }
+
+        internal List<School> FilterListByCity(List<School> schoolsToFilter, string text)
+        {
+            List<School> schoolsToReturn = new List<School>();
+            foreach (School school in schoolsToFilter)
+            {
+                if (school.Address.City.Contains(text))
+                    schoolsToReturn.Add(school);
+            }
+            return schoolsToReturn;
+        }
+
+        internal List<School> FilterListByStreet(List<School> schoolsToFilter, string text)
+        {
+            List<School> schoolsToReturn = new List<School>();
+            foreach (School school in schoolsToFilter)
+            {
+                if (school.Address.Street.Contains(text))
+                    schoolsToReturn.Add(school);
+            }
+            return schoolsToReturn;
+        }
+
+        internal List<School> FilterListByNumber(List<School> schoolsToFilter, string text)
+        {
+            List<School> schoolsToReturn = new List<School>();
+            foreach (School school in schoolsToFilter)
+            {
+                if (school.Address.Number == Convert.ToInt32(text))
+                    schoolsToReturn.Add(school);
+            }
+            return schoolsToReturn;
+        }
+
+        internal List<School> FilterListByLanguages(List<School> schoolsToFilter, string language)
+        {
+            List<School> schoolsToReturn = new List<School>();
+            foreach (School school in schoolsToFilter)
+            {
+                if (school.Languages.Contains(language))
+                    schoolsToReturn.Add(school);
             }
             return schoolsToReturn;
         }

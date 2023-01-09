@@ -41,6 +41,7 @@
                   CanUserDeleteRows="False"
                   IsReadOnly="True" Grid.ColumnSpan="2">
         </DataGrid>
+        <Button Content="Filter" HorizontalAlignment="Left" Margin="80,40,0,0" VerticalAlignment="Top" Width="86" Height="27" FontSize="10" Style="{StaticResource btn_style}" Click="Filter_Click"/>
 
         <!-- //Menu bar panel // -->
         <uc:UnauthorizedMenu Focusable="False" x:Name="UnauthorizedMenu" Grid.Column="0" Grid.ColumnSpan="2" />

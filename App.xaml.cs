@@ -19,6 +19,7 @@ namespace ForeignLanguagesSchool
         internal AddressService addressService;
         internal SchoolService schoolService;
         internal UserService userService;
+        internal ClassService classService;
         internal User loggedUser;
 
         public App()
@@ -32,6 +33,9 @@ namespace ForeignLanguagesSchool
 
             UserRepository userRepository = new UserRepository();
             userService = new UserService(userRepository, schoolService);
+
+            ClassRepository classRepository = new ClassRepository();
+            classService = new ClassService(classRepository);
         }
     }
 }

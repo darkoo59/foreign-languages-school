@@ -12,6 +12,7 @@
     </Window.Resources>
     <Grid x:Name="GridStyle" Style="{StaticResource GridStyle}">
         <Image Source="../../Resources/img/Close.png" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.078,-0.625" Margin="305,5,-266,0" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Button Content="Filter" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="56" Height="17" FontSize="10" Style="{StaticResource btn_style}" Click="Filter_Click"/>
         <DataGrid x:Name="professorsGrid" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" SelectionMode="Single" Width="auto" Height="auto" ColumnWidth="*"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,40,10,10" CanUserResizeColumns="True" CanUserResizeRows="False"  RowStyle="{StaticResource dataGridRow_style}" RowHeaderStyle="{StaticResource dataGridRowHeader}" ColumnHeaderStyle="{StaticResource dataGridHeader}" Style="{StaticResource dataGrid}"/>
     </Grid>
 </Window>

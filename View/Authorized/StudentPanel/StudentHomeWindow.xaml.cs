@@ -1,4 +1,6 @@
-﻿using ForeignLanguagesSchool.Service;
+﻿using ForeignLanguagesSchool.Model;
+using ForeignLanguagesSchool.Service;
+using ForeignLanguagesSchool.View.Unauthorized;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +14,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ForeignLanguagesSchool.Repository;
-using ForeignLanguagesSchool.Model;
 
-namespace ForeignLanguagesSchool.View.Unauthorized
+namespace ForeignLanguagesSchool.View.Authorized.StudentPanel
 {
     /// <summary>
-    /// Interaction logic for Home.xaml
+    /// Interaction logic for StudentHomeWindow.xaml
     /// </summary>
-    public partial class Home : Window
+    public partial class StudentHomeWindow : Window
     {
         private readonly SchoolService _schoolService;
         private readonly AddressService _addressService;
         private List<School> schools;
         private App app;
-
-        public Home()
+        public StudentHomeWindow()
         {
             app = Application.Current as App;
             _addressService = app.addressService;
@@ -36,20 +35,7 @@ namespace ForeignLanguagesSchool.View.Unauthorized
             InitializeComponent();
             this.DataContext = this;
             UpdateGridView();
-
-            ComboCity.Items.Add("None");
-            ComboCity.SelectedItem = "None";
-            foreach (string city in _addressService.getAllCities())
-            {
-                ComboCity.Items.Add(city);
-            }
-
-            ComboLanguage.Items.Add("None");
-            ComboLanguage.SelectedItem = "None";
-            foreach (string language in _schoolService.getAllLanguages())
-            {
-                ComboLanguage.Items.Add(language);
-            }
+            InitializeComponent();
             schoolDataGrid.Items.Clear();
             schoolDataGrid.ItemsSource = schools;
         }
@@ -86,50 +72,9 @@ namespace ForeignLanguagesSchool.View.Unauthorized
                 this.DragMove();
         }
 
-        private void Search_Click(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left && this.IsFocused == true)
-                this.DragMove();
-        }
-
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
-        }
-
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-            if ((string)ComboCity.SelectedValue != "None" || (string)ComboLanguage.SelectedValue != "None")
-            {
-                if((string)ComboCity.SelectedValue != "None" && (string)ComboLanguage.SelectedValue == "None")
-                {
-                    schools = _schoolService.getAllSchoolsForCity((string)ComboCity.SelectedValue);
-                    schoolDataGrid.ItemsSource = schools;
-                }else if((string)ComboCity.SelectedValue == "None" && (string)ComboLanguage.SelectedValue != "None")
-                {
-                    schools = _schoolService.getAllSchoolsForLanguage((string)ComboLanguage.SelectedValue);
-                    schoolDataGrid.ItemsSource = schools;
-                }
-                else
-                {
-                    schools = _schoolService.getAllSchoolsForCityAndLanguage((string)ComboCity.SelectedValue,(string)ComboLanguage.SelectedValue);
-                    schoolDataGrid.ItemsSource = schools;
-                }
-            }
-            else
-            {
-                schools = _schoolService.getAllSchooles();
-                schoolDataGrid.ItemsSource = schools;
-            }
-        }
-
-        private void Show_Professors_Click(object sender, RoutedEventArgs e)
-        {
-            if (schoolDataGrid.SelectedItem != null)
-            {
-                ProfessorsFromSchoolWindow window = new ProfessorsFromSchoolWindow((School)schoolDataGrid.SelectedItem);
-                window.Show();
-            }
         }
 
         private void Filter_Click(object sender, RoutedEventArgs e)

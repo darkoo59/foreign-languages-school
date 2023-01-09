@@ -1,12 +1,12 @@
-﻿<Window x:Class="ForeignLanguagesSchool.View.Authorized.Administrator.AccountsWindow"
+﻿<Window x:Class="ForeignLanguagesSchool.View.Authorized.StudentPanel.AllProfessorsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ForeignLanguagesSchool.View.Authorized.Administrator"
-        xmlns:uc="clr-namespace:ForeignLanguagesSchool.View.Authorized.Administrator"
+        xmlns:uc="clr-namespace:ForeignLanguagesSchool.View.Authorized.StudentPanel"
+        xmlns:local="clr-namespace:ForeignLanguagesSchool.View.Authorized.StudentPanel"
         mc:Ignorable="d"
-        Title="Accounts" Height="720" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown">
+        Title="All professors" Height="720" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown">
     <Window.Resources>
         <ResourceDictionary Source="../../WindowStyles.xaml"></ResourceDictionary>
     </Window.Resources>
@@ -16,10 +16,8 @@
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <Image Source="../../../Resources/img/Close.png" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.078,-0.625" Grid.Column="1" Margin="47,3,0,0" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="550,22,0,0" VerticalAlignment="Top" Width="76" Height="35" Style="{StaticResource btn_style}" Click="Update_Click"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="650,22,0,0" VerticalAlignment="Top" Width="96" Height="35" Style="{StaticResource btn_style}" Background="Red" Click="Delete_Click"/>
-        <Button Content="Filter" HorizontalAlignment="Left" Margin="80,22,0,0" VerticalAlignment="Top" Width="76" Height="35" Style="{StaticResource btn_style}" Click="Filter_Click"/>
-        <DataGrid Name="accountsDataGrid" Style="{StaticResource dataGrid}"
+        <Button Content="Show classes" HorizontalAlignment="Left" Margin="610,22,0,0" VerticalAlignment="Top" Width="116" Height="45" Style="{StaticResource btn_style}" Click="ShowClasses_Click"/>
+        <DataGrid Name="professorsDataGrid" Style="{StaticResource dataGrid}"
                   RowStyle="{StaticResource dataGridRow_style}" RowHeaderStyle="{StaticResource dataGridRowHeader}" ColumnHeaderStyle="{StaticResource dataGridHeader}"
                   HorizontalScrollBarVisibility="Disabled"
                   VerticalScrollBarVisibility="Disabled"
@@ -27,14 +25,15 @@
                   Width="auto"
                   Height="auto"
                   ColumnWidth="*"
-                  Margin="60,80,20,65"
+                  Margin="64,80,10,10"
                   CanUserResizeColumns="True"
                   CanUserResizeRows="False"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
                   IsReadOnly="True" Grid.ColumnSpan="2">
         </DataGrid>
+        <Button Content="Filter" HorizontalAlignment="Left" Margin="80,40,0,0" VerticalAlignment="Top" Width="86" Height="27" FontSize="10" Style="{StaticResource btn_style}" Click="Filter_Click"/>
         <!-- //Menu bar panel // -->
-        <uc:AdministratorMenu Focusable="False" x:Name="AdministratorMenu" Grid.Column="0" Grid.ColumnSpan="2" />
+        <uc:StudentMenu Focusable="False" x:Name="StudentMenu" Grid.Column="0" Grid.ColumnSpan="2" />
     </Grid>
 </Window>

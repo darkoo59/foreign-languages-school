@@ -1,6 +1,6 @@
 ﻿using ForeignLanguagesSchool.Model;
 using ForeignLanguagesSchool.Service;
-using ForeignLanguagesSchool.Repository;
+using ForeignLanguagesSchool.View.Unauthorized;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,34 +15,44 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ForeignLanguagesSchool.View.Unauthorized
+namespace ForeignLanguagesSchool.View.Authorized.ProfessorPanel
 {
     /// <summary>
-    /// Interaction logic for ProfessorsFromSchoolWindow.xaml
+    /// Interaction logic for ProfessorAllProfessorsWindow.xaml
     /// </summary>
-    public partial class ProfessorsFromSchoolWindow : Window
+    public partial class ProfessorAllProfessorsWindow : Window
     {
-        private List<Professor> professors;
         private readonly UserService _userService;
+        private readonly ClassService _classService;
+        private List<Professor> professors;
         private App app;
-        private School selectedSchool;
-        public ProfessorsFromSchoolWindow(School selectedSchool)
+        public ProfessorAllProfessorsWindow()
         {
             app = Application.Current as App;
-            this.selectedSchool = selectedSchool;
             _userService = app.userService;
-            professors = _userService.GetAllProfessorsBySchoolId(selectedSchool.Id);
+            _classService = app.classService;
             InitializeComponent();
-            this.DataContext = this;
             UpdateGridView();
-            professorsGrid.Items.Clear();
-            professorsGrid.ItemsSource = professors;
-
+            professors = _userService.getAllProfessors();
+            professorsDataGrid.ItemsSource = professors;
         }
 
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void UpdateGridView()
         {
-            this.Close();
+            professorsDataGrid.AutoGenerateColumns = false;
+            professorsDataGrid.CanUserSortColumns = false;
+            DataGridTextColumn dataColumn = new DataGridTextColumn();
+            dataColumn.Header = "First name";
+            dataColumn.Binding = new Binding("FirstName");
+            professorsDataGrid.Columns.Add(dataColumn);
+            dataColumn = new DataGridTextColumn();
+            dataColumn.Header = "Last name";
+            dataColumn.Binding = new Binding("LastName");
+            professorsDataGrid.Columns.Add(dataColumn);
+            dataColumn = new DataGridTextColumn();
+            dataColumn.Header = "Email";
+            dataColumn.Binding = new Binding("Email");
+            professorsDataGrid.Columns.Add(dataColumn);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -51,34 +61,21 @@ namespace ForeignLanguagesSchool.View.Unauthorized
                 this.DragMove();
         }
 
-        private void UpdateGridView()
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            professorsGrid.AutoGenerateColumns = false;
-            professorsGrid.CanUserSortColumns = false;
-            DataGridTextColumn dataColumn = new DataGridTextColumn();
-            dataColumn.Header = "First name";
-            dataColumn.Binding = new Binding("FirstName");
-            professorsGrid.Columns.Add(dataColumn);
-            dataColumn = new DataGridTextColumn();
-            dataColumn.Header = "Last name";
-            dataColumn.Binding = new Binding("LastName");
-            professorsGrid.Columns.Add(dataColumn);
-            dataColumn = new DataGridTextColumn();
-            dataColumn.Header = "Email";
-            dataColumn.Binding = new Binding("Email");
-            professorsGrid.Columns.Add(dataColumn);
+            this.Close();
         }
 
         private void Filter_Click(object sender, RoutedEventArgs e)
         {
-            ProfessorsFilter window = new ProfessorsFilter(_userService.GetAllProfessorsBySchoolId(selectedSchool.Id));
+            ProfessorsFilter window = new ProfessorsFilter(_userService.getAllProfessors());
             window.Show();
         }
 
         internal void FilterList(List<Professor> filteredProfessors)
         {
             professors = filteredProfessors;
-            professorsGrid.ItemsSource = filteredProfessors;
+            professorsDataGrid.ItemsSource = filteredProfessors;
         }
     }
 }
