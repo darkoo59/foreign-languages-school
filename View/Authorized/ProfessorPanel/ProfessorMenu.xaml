@@ -108,7 +108,7 @@
                                    Margin="0,0,0,4"
                                    Width="35"
                                    Height="30"/>
-                        <TextBlock Text = "Classes"
+                        <TextBlock Text = "Professors"
                                        Margin = "13,0,0,4"
                                        Foreground="White" RenderTransformOrigin="-0.444,-0.259" Height="33" Width="51"/>
                     </StackPanel>

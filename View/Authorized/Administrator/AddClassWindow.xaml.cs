@@ -80,9 +80,9 @@ namespace ForeignLanguagesSchool.View.Authorized.Administrator
             else if (!IsDigitsOnly(HourTb.Text))
                 MessageBox.Show("Hour need to be number.", "Wrong input", MessageBoxButton.OK, MessageBoxImage.Warning);
             else if (!IsDigitsOnly(MinuteTb.Text))
-                MessageBox.Show("City is empty.", "Wrong input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Minutes is empty.", "Wrong input", MessageBoxButton.OK, MessageBoxImage.Warning);
             else if (!IsDigitsOnly(DurationTb.Text))
-                MessageBox.Show("Street is empty.", "Wrong input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Duration is empty.", "Wrong input", MessageBoxButton.OK, MessageBoxImage.Warning);
             else if (!isHourValidFormat(HourTb.Text))
                 MessageBox.Show("Hour range is from 0 to 24.", "Wrong input", MessageBoxButton.OK, MessageBoxImage.Warning);
             else if (!isMinuteValidFormat(MinuteTb.Text))
