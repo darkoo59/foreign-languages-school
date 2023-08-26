@@ -13,7 +13,7 @@ namespace ForeignLanguagesSchool.Repository
         private readonly string _connectionString;
         public SchoolRepository()
         {
-            _connectionString = "Data Source=LAPTOP-A2KV1B0B;Initial Catalog=ForeignLanguagesSchool;Integrated Security=True;Pooling=False";
+            _connectionString = "Data Source=LAPTOP-CKBIDUHH;Initial Catalog=ForeignLanguagesSchool;Integrated Security=True;Pooling=False";
         }
 
         public List<string> GetAllLanguagesBySchoolId(int id)

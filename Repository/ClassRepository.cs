@@ -14,7 +14,7 @@ namespace ForeignLanguagesSchool.Repository
         private readonly string _connectionString;
         public ClassRepository()
         {
-            _connectionString = "Data Source=LAPTOP-A2KV1B0B;Initial Catalog=ForeignLanguagesSchool;Integrated Security=True;Pooling=False";
+            _connectionString = "Data Source=LAPTOP-CKBIDUHH;Initial Catalog=ForeignLanguagesSchool;Integrated Security=True;Pooling=False";
         }
 
         public List<Class> GetAllClasses()
@@ -66,7 +66,7 @@ namespace ForeignLanguagesSchool.Repository
                 command.Parameters.AddWithValue("@duration", classToAdd.Duration);
                 command.Parameters.AddWithValue("@class_status", Convert.ToInt32(classToAdd.ClassStatus));
                 command.Parameters.AddWithValue("@student_id", classToAdd.StudentId);
-                command.Parameters.AddWithValue("@deleted", classToAdd.StudentId);
+                command.Parameters.AddWithValue("@deleted", classToAdd.Deleted);
                 command.ExecuteNonQuery();
             }
             }
